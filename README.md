@@ -7,29 +7,13 @@ Playing around with the new cgroup-related JVM option.
 Build a program that eats all memory (1mb at time) and prints runtime info:
 
 ```console
-$ javac Main.java
-Note: Main.java uses unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
+$ gradle build
 ```
 
 Build a docker image with that container:
 
 ```console
-$ docker build -t caarlos0/java-docker-cgroups .
-Sending build context to Docker daemon  83.46kB
-Step 1/4 : FROM store/oracle/serverjre:8
- ---> f5a1afb45afe
-Step 2/4 : COPY Main.class /
- ---> Using cache
- ---> bc43f3f5c123
-Step 3/4 : COPY entrypoint.sh /
- ---> Using cache
- ---> 7673b0fe0969
-Step 4/4 : ENTRYPOINT /entrypoint.sh
- ---> Using cache
- ---> 1aaf6193122a
-Successfully built 1aaf6193122a
-Successfully tagged caarlos0/java-docker-cgroups:latest
+$ ./build_docker.sh
 ```
 
 ## Running
@@ -37,7 +21,7 @@ Successfully tagged caarlos0/java-docker-cgroups:latest
 Run the container limiting its memory and cpus via cgroups:
 
 ```console
-$ docker run --memory=10m --cpuset-cpus 1 caarlos0/java-docker-cgroups
+$ docker run --memory=10m --cpuset-cpus=1 jjuarez/java-docker-cgroups:latest
 available processors: 1
 max memory: 361
 total memory: 23
@@ -54,7 +38,7 @@ Run the container limiting its memory and cpus via cgroups and enabling the
 experimental features:
 
 ```console
-$ docker run --memory=10m --cpuset-cpus 1 caarlos0/java-docker-cgroups -x
+$ docker run --memory=10m --cpuset-cpus=1 jjuarez/java-docker-cgroups:latest -x
 Enable experimental vm options
 available processors: 1
 max memory: 6
