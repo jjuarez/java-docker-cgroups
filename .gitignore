@@ -2,5 +2,6 @@
 .gradle/*
 .settings/*
 .idea/*
+.vscode/*
 .project
 build/*
