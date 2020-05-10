@@ -14,12 +14,12 @@ help:
 
 .PHONY: clean
 clean:
-	@gradle clean
+	@gradle clean --no-daemon
 
 
 .PHONY: build
 build:  ## build the java project
-	@gradle build
+	@gradle build --no-daemon --refresh-dependencies
 
 
 .PHONY: docker
