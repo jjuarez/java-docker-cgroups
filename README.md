@@ -21,7 +21,7 @@ make docker
 Run the container limiting its memory and cpus via cgroups:
 
 ```bash
-$ docker run --memory=10m --cpuset-cpus=1 jjuarez/java-docker-cgroups:latest
+$ docker run --memory=10m --cpus=1 jjuarez/java-docker-cgroups:latest
 available processors: 1
 max memory: 361
 total memory: 23
@@ -38,7 +38,7 @@ Run the container limiting its memory and cpus via cgroups and enabling the
 experimental features:
 
 ```bash
-$ docker run --memory=10m --cpuset-cpus=1 jjuarez/java-docker-cgroups:latest -x
+$ docker run --memory=10m --cpus=1 jjuarez/java-docker-cgroups:latest -x
 Enable experimental vm options
 available processors: 1
 max memory: 6
