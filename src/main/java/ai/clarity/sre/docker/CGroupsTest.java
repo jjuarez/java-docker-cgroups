@@ -14,7 +14,7 @@ public class CGroupsTest {
 		@SuppressWarnings("rawtypes")
 		final Vector v = new Vector();
 		while (true) {
-			final byte b[] = new byte[1048576];
+			final byte b[] = new byte[MB];
 
 			v.add(b);
 			System.out.println("  free memory: " + (Runtime.getRuntime().freeMemory() / MB));
