@@ -1,0 +1,10 @@
+.dockerignore
+README.md
+Dockerfile
+build/generated/*
+build/classes/*
+build/resources/*
+build/tmp/*
+src/java/*
+src/test/*
+.env*
